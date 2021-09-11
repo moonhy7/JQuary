@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전체 요소 선택자</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>제이쿼리</h1>
+    <h2>선택자</h2>
+    <h3 class="tit">직접선택자</h3>
+    <script>
+        $(function() {
+            //그룹 선택자
+            //속성 여러개 적용
+            //체이닝 기법 : 메소드 여러개를 줄줄이 사용하는 방식
+            //$("h1, .tit").css("border", "1px solid red").css("background-color", "#ff0");
+            //속성을 객체로 전달하는 방식
+            $("h1, .tit").css( {
+                "border" : "1px solid red",
+                "background-color" : "#ff0"
+            });
+        });
+    </script>
+</body>
+</html>

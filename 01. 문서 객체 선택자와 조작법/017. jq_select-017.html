@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>first/last 위치 탐색 선택자</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>first/last 위치 탐색 선택자</h1>
+    <ul id="menu">
+        <li>내용1</li>
+        <li>내용2</li>
+        <li>내용3</li>
+        <li>내용4</li>
+    </ul>
+    <script>
+        //menu의 li중 첫 번째 요소 선택
+        //내용1 선택
+        $("#menu li:first").css( {
+            "border" : "1px solid red",
+            "background-color" : "#ff0"
+        });
+        // $("menu li").first.css( {
+        //     "border" : "1px solid red",
+        //     "background-color" : "#ff0"
+        // });
+        // menu 의 li중 마지막 요소 선택
+        $("#menu li:last").css( {
+            "border" : "1px dashed red",
+            "background-color" : "skyblue"
+        });
+        // $("menu li").last.css( {
+        //     "border" : "1px dashed red",
+        //     "background-color" : "skyblue"
+        // });
+    </script>
+</body>
+</html>
