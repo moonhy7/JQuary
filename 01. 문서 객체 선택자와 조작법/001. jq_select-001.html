@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1 id="title">제목</h1>
+    <script>
+        //제이쿼리 즉시 실행 함수 - html 문서 로딩이 완료되면 실행
+        $(function() {
+            //제이쿼리 아이디 선택자
+            //선택된 요소의 글자색을 빨간색으로 변경
+            $("#title").css("color", "red");
+        });
+    </script>
+</body>
+</html>

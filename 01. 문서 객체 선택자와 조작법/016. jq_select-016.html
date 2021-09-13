@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자식 요소 선택자</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1 class="title">가장 가까운 상위 요소 선택자</h1>
+    <div>
+        <div>
+            <p class="txt1">내용1</p>
+        </div>
+    </div>
+    <div>
+        <section>
+            <p class="txt2">내용2</p>
+        </section>
+    </div>
+    <script>
+        $(function() {
+            //가장 가까운 상위 요소 중 div 선택
+            $(".txt1").closet("div").css({
+                "border" : "1px solid red",
+                "background-color" : "#ff0"
+            });
+            //상위 요소 중 div 선택
+            $(".txt2").closest("div").css({
+                "border" : "1px solid red",
+                "background-color" : "skyblue"
+            });
+        });
+    </script>
+</body>
+</html>
