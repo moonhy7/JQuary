@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>first-of-type/last-of-type 위치 탐색 선택자</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>first-of-type/last-of-type 위치 탐색 선택자</h1>
+    <ul id="menu">
+        <li>내용1-1</li>
+        <li>내용1-2</li>
+        <li>내용1-3</li>
+        <li>내용1-4</li>
+    </ul>
+    <ul id="menu">
+        <li>내용2-1</li>
+        <li>내용2-2</li>
+        <li>내용2-3</li>
+        <li>내용2-4</li>
+    </ul>
+    <script>
+        //요소 무리 중 첫 번째 요소만 선택
+        //index = 2 - 내용3
+        $("#menu li:first-of-type").css( {
+            "border" : "1px solid red",
+            "background-color" : "#ff0"
+        });
+        // 요소 무리 중 맞막 요소만 선택
+        $("#menu li:last-of-type").css( {
+            "border" : "1px dashed red",
+            "background-color" : "skyblue"
+        });
+    </script>
+</body>
+</html>
