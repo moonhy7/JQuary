@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>find()/filter() 탐색 선택자</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="outer_wrap">
+        <h1>find()/filter()</h1>
+        <section id="inner_1">
+            <h2>find()/filter()</h2>
+            <p class="txt1">내용1</p>
+            <p class="txt2">내용2</p>
+        </section>
+        <section id="inner_2">
+            <h2>filter(function)</h2>
+            <p>index0</p>
+            <p>index1</p>
+            <p>index2</p>
+            <p>index3</p>
+        </section>
+    </div>
+    <script>
+        $(function() {
+            //inner_1의 하위요소 중 class가 txt1인 요소 선택
+            $("#inner_1").find(".txt1").css({
+                "background-color" : "yellow"
+            });
+            //inner_1의 p요소 중 class가 txt2인 요소 선택
+            $("#inner_1 p").filter(".txt2").css({
+                "background-color" : "skyblue"
+            });
+            //inner_2의 p요소 중 index가 짝수인 요소 선택
+            $("#inner_2 p").filter(function(idx,obj) {
+                console.log(idx);
+                console.log(obj);
+                return idx % 2 == 0;
+            }).css({
+                "background-color" : "green"
+            });
+        });
+    </script>
+</body>
+</html>
