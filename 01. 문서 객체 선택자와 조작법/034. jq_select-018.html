@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attr()/removeAttr() 메소드</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <p id="p1">내용1</p>
+    <p id="p2" class="red">내용2</p>
+    <p id="p3">내용3</p>
+    <p id="p4" class="green">내용4</p>
+    <p id="p5" class="yellow">내용5</p>
+    <p id="p6">내용6</p>
+    <button id="btn">색상토글</button>
+    <script>
+        $(function() {
+            //p1 요소에 aqua클래스 추가
+            $("#p1").addClass("aqua");
+            //p2요소애서 red클래스 제거
+            $("#p2").removeClass("red");
+            //p3요소에 green클래스가 있으면 green클래스 제거, 없으면 green클래스 추가
+            $("#p3").toggleClass("green");
+            //p3요소에 green클래스가 있으면 green클래스 제거, 없으면 green클래스 추가
+            $("#p4").toggleClass("green");
+            //p5요소에 yellow클래스가 있는지 확인
+            $("#p6").text($("#p5").hasclass("yellow"));
+
+            //버튼 클릭 시 계속해서 색상이 토글되도록
+            $("#btn").clck(function() {
+                $("p4").toggleClass("green");
+            });
+        });
+    </script>
+</body>
+</html>

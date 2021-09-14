@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attr()/removeAttr()</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>
+        <strong>attr()/removeAttr()</strong>
+    </h1>
+    <section id="sec_1">
+        <h2>
+            <em>이미지 속성</em>
+        </h2>
+        <p>
+            <img src="images/math_img_1.jpg" alt="가위" border="2">
+        </p>
+    </section>
+    <script>
+        $(function() {
+            //sec_1 img의 src 속성 값 반환
+            var srcVal = $("#sec_1 img").attr("src");
+            console.log(srcVal);
+
+            //sec_1 img의 width 속성 추가, src/alt 속성 변경
+            $("#sec_1 img").attr({
+                "width" : 200,
+                "src" : srcVal.replace("1.jpg", "3.jpg"),
+                "alt" : "보"
+            }).removeAttr("border"); //sec_1 img의 border 속성 제거
+        });
+    </script>
+</body>
+</html>
