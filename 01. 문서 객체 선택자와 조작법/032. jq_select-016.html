@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html()/text() 메소드</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>
+        <strong>html()/txt()</strong>
+    </h1>
+    <section id="sec_1">
+        <h2>
+            <em>html()</em>
+        </h2>
+        <p>내용1</p>
+    </section>
+    <section id="sec_2">
+        <h2>
+            <em>text()</em>
+        </h2>
+        <p>내용2</p>
+    </section>
+    <script>
+        $(function() {
+            //sec_1의 하위 요소들을 문자열로 반환
+            var result_1 = $("#sec_1").html();
+            console.log(result_1);
+            //sec_1의 하위 요소들 삭제 후 a 요소 추가
+            $("#sec_1").html("<a href='#'>Text1</a>");
+
+            //sec_2의 하위 요소들의 전체 텍스트 반환 - text(), 내용2
+            var result_2 = $("#sec_2").text();
+            console.log(result_2);
+            //sec_2의 하위 요소를 삭제 후 새로운 텍스트 추가
+            $("#sec_2").text("text()메소드");
+        })
+    </script>
+</body>
+</html>
