@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>before() / insertBefore() / after() / insertAfter() 메소드</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <p>내용1</p>
+        <p>내용2</p>
+        <p>내용3</p>
+    </div>
+    
+    <script>
+        $(function() {
+            //p요소 중 index가 2인 요소 다음에 새로운 p요소 추가 - 내용3 다음에 추가
+            $("#wrap p:eq(2)").after("<p>After</p>");
+            //p요소 중 index가 1인 요소 다음에 새로운 p요소 추가 - 내용2 다음에 추가
+            $("<p>insertAfter</p>").insertAfter("#wrap p:eq(1)");
+            
+            //p요소 중 index가 1인 요소 이전에 새로운 p요소 추가 - 내용2 이전에 추가
+            $("#wrap p:eq(1)").before("<p>Before</p>");
+            //p요소 중 index가 0인 요소 이전에 새로운 p요소 추가 - 내용0 이전에 추가
+            $("<p>insertBefore</p>").insertBefore("#wrap p:eq(0)");
+        });
+    </script>
+</body>
+</html>

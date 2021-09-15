@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery Selector</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="wrap_1">
+        <p>텍스트1</p>
+        <p class="active">내용2</p>
+        <p><a href="#">네이버</a></p>
+        <p>
+            <input type="text" value="Hello">
+        </p>
+    </div>
+    <div class="wrap_2">
+        <p>내용5</p>
+        <p>내용6</p>
+    </div>
+    <div class="wrap_3">
+        <div>
+            <p>내용7</p>
+            <p>내용8</p>
+        </div>
+    </div>
+    
+    <script>
+        $(function() {
+            //
+            $(".wrap_1 p:first").text("내용1");
+
+            $(".wrap_1 p:eq(2) a").remove()
+
+            $(".wrap_1 p.active").attr("href", "http://www.naver.com");
+
+            
+            
+        });
+    </script>
+</body>
+</html>

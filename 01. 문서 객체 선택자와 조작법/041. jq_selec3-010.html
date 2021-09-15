@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>append() / appendTo() / prepend() / prependTo() 메소드</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <ul id="listZone">
+        <li>리스트</li>
+    </ul>
+    <script>
+        $(function() {
+            //listZone 요소 마지막에 새로운 li 요소 추가
+            $("<li>appendTo</li>").appendTo("#listZone");
+            //listZone 요소 마지막에 새로운 li 요소 추가
+            $("#listZone").append("<li>append</li>");
+            
+            //listZone 요소 처음에 새로운 li 요소 추가
+            $("<li>prependTo</li>").prependTo("#listZone");
+            //listZone 요소 처음에 새로운 li 요소 추가
+            $("#listZone").prepend("<li>prepend</li>");
+        });
+    </script>
+</body>
+</html>

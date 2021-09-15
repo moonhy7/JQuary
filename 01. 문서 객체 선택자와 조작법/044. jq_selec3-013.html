@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unwrap() / wrap() / wrapAll() / wrapInner() 메소드</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <Style>
+        div {
+            background-color: aqua;
+        }
+        h3 {
+            background-color: palegoldenrod;
+        }
+    </Style>
+</head>
+<body>
+    <h1 id="tit_1">
+        <strong>객체 조작 및 생성</strong>
+    </h1>
+    <p class="ct1">내용1</p>
+    <p class="ct1">내용2</p>
+    <p class="ct2">내용3</p>
+    <p class="ct2">내용4</p>
+    <ul>
+        <li>내용3</li>
+        <li>내용4</li>
+    </ul>
+    <script>
+        $(function() {
+            //strong 요소의 부모'요소' 삭제 -> h1이 사라지게됨
+            $("strong").unwrap();
+            //ct1 요소를 각각 div 요소로 감싼다 <div><p class="ct1"></p></div> <div><p class="ct1"></p></div>
+            $(".ct1").wrap("<div />");
+            //ct2 요소를 각각 div 요소로 감싼다 <div><p class="ct1"></p><p class="ct2"></p></div>
+            $(".ct2").wrapAll("<div />");
+            //li 요소 하위 요소를 h3 요소로 감싼다
+            $("li").wrapInner("<h3 />");
+        });
+    </script>
+</body>
+</html>
