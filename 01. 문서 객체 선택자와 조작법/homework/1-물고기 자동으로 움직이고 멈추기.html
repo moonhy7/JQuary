@@ -1,0 +1,157 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>물고기 자동으로 움직이기</title>
+    <style>
+        body {
+            font-size: 9pt;
+        }
+
+        #panel {
+            width: 600px;
+            height: 300px;
+            border: 1px solid #999;
+            position: relative;
+        }
+
+        #bar {
+            position: absolute;
+            left: 50px;
+            top: 190px;
+            width: 500px;
+            height: 20px;
+            background: #F30;
+        }
+
+        #fish {
+            position: absolute;
+            left: 50px;
+            top: 120px;
+        }
+
+        #nav {
+            text-align: center;
+            width: 600px;
+            margin-top: 20px;
+        }
+    </style>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+         미션02:
+             1. 시작 버튼을 누르면 물고기가 좌우로 자동으로 움직이게 해주세요.
+             (기존에는 버튼을 클릭할 때마다 물고기가 조금씩 움직여서 손가락이 너무 아팠잖아요? 이걸 자동으로 만드는 거죠~)
+             2. 정지 버튼을 누르면 물고기를 멈춰 주세요. 다시 시작 버튼을 누르면 물고기가 움직이게 해주세요.
+             3. 가능한 함수를 활용해 소스 코드를 구조화해 주세요.
+
+         팁!
+             - $물고기를 움직이는 방법은 물고기.css("left", 위치값)를 해주면 된답니다.
+
+         */
+        /*
+         단계03
+            -리팩토링2: 구현 코드 구조화
+
+         단계02
+             - 리팩토링1: 함수 나누기
+
+         단계01
+            - 구현
+
+         */
+
+        var $fish = null;
+        // 물고기가 한번에 움직일 거리
+        var step = 50;
+        var timerID = 0;
+
+        $(document).ready(function () {
+            init();
+            initEvent();
+        });
+
+        // 요소 초기화
+        function init() {
+            //물고기 노드 구하기.
+            $fish = $("#fish");
+        }
+
+        // 이벤트 초기화
+        function initEvent() {
+
+            // 물고기 움직이기
+            $("#btnStart").click(function () {
+                start();
+            });
+
+            // 물고기 멈추기
+            $("#btnStop").click(function () {
+                stop();
+            })
+        }
+
+        // 물고기 움직이기 타이머 실행
+        function start() {
+
+            if (timerID == 0) {
+                timerID = setInterval(function() {
+                    //물고기 움직이기
+                    moveFish(); /*여기 수정*/
+                },100);
+            }
+        }
+
+        // 물고기 멈추기
+        function stop() {
+            clearInterval(timerID);
+            timerID = 0;
+        }
+
+        // 물고기 움직이기
+        function moveFish() {
+            // 다음 물고기 위치
+            var x = $fish.position().left + step;
+
+            // 물고기 위치가 430을 넘는 경우, 물고기 이동방향을 뒤쪽으로 변경 해줌
+            if (x >= 430) {
+                x = 430;
+                $fish.attr("src", "images/fish2.png");
+                step = -50;
+            }
+
+            // 물고기 위치가 50보다 작은 경우, 물고기 이동방향을 앞쪽으로 변경 해줌
+            if (x < 50) {
+                x = 50;
+				$fish.attr("src", "images/fish1.png");
+                step = 50;
+            }
+            // 물고기 위치 설정
+            $fish.css("left", x);
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <div id="panel">
+            <div id="bar"> </div>
+            <img src="images/fish1.png" id="fish">
+        </div>
+        <div id="nav">
+            <button id="btnStart">
+                시작
+            </button>
+            <button id="btnStop">
+                멈춤
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

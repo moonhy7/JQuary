@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position() / offset() 메소드</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box_wrap {
+            width: 300px;
+            height: 200px;
+            margin: 50px auto 0;
+            position: relative;
+            background-color: #ccc;
+        }
+        .box {
+            width: 50px; 
+            height: 50px;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box_wrap">
+        <p class="box">박스</p>
+    </div>
+    <p class="txt1">절대 top 위치 값 : <span></span></p>
+    <p class="txt1">상대 top 위치 값 : <span></span></p>
+    <script>
+        $(function() {
+            //요소들 변수로 선언
+            var $txt1 = $(".txt1 span");
+            var $txt2 = $(".txt2 span");
+            var $box = $(".box");
+            //.box의 브라우저로부터의 절대 top 값 - top + 부모요소의 margin-top : 150
+            var off_t = $box.offset().top;
+            //.box의 부모요소로부터의 상대 top 값 - top : 100
+            var pos_t = $box.position().top;
+
+            $txt1.text(off_t);
+            $txt2.text(pos_t);
+        })
+    </script>
+</body>
+</html>

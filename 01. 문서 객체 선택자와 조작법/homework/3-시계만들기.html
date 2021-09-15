@@ -1,0 +1,79 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD Xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <style>
+        #clock {
+            width: 400px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+
+            border: 2px solid #000;
+        }
+    </style>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>
+        /*
+         미션 02:시계 만들기 ver 2.0
+
+         이번 미션은 미션01에서 만든 시계를 다음 실행화면처럼 출력되게 만드는 것입니다.
+         예를 들어 2시 3분 5초인 경우 미션1에서는 2:3.5초로 출력됐는데요.
+         이를 02:03.05처럼 출력되게 만들어 주면 됩니다.
+
+         */
+        var $clock = null;
+        $(document).ready(function () {
+            $clock = $("#clock");
+
+            // 시간 출력 함수 호출
+            clock();
+
+        });
+
+        function clock() {
+            // 여기에 풀이를 입력해주세요.
+                                            /* 답을 적은 부분*/
+            // 숫자 값을 00 문자로 변환
+            function addZero(value) {
+                //10보다 작은 경우에만 00 문자로 변환
+                if (value < 10) {
+                    value = "0" + value;
+                }
+
+                return value;
+            }
+
+            // 현재 시간 출력
+            function showTime() {
+                var objDate = new Date();
+                var hours = addzero(objDate.getHours()); /* 답을 적은 부분*/
+                var minutes = addzero(objDate.getMinutes()); /* 답을 적은 부분*/
+                var seconds = addzero(objDate.getSeconds()); /* 답을 적은 부분*/
+
+                var time = hours + ":" + minutes + ":" + seconds;
+                $clock.html(time);
+            }
+
+            // 시작하자마 시간 출력
+            showTime();
+
+            // 1초마다 시간 출력
+            setInterval(function () {
+                showTime(); /* 답을 적은 부분*/
+            }, 1000);
+        };
+
+    </script>
+
+</head>
+
+<body>
+    <div id="clock">
+        00:00.00
+    </div>
+</body>
+
+</html>

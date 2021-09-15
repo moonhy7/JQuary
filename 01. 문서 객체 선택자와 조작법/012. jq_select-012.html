@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>형/동생 요소 선택자</title>
+    <title>자식 요소 선택자</title>
     <script src="../js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -13,7 +13,7 @@
         <h1>형/동생 요소 선택자1</h1>
         <p class="p">내용1</p>
         <section>
-            <h1>형/동생 요소 선택자2</h1>
+        <h1>형/동생 요소 선택자2</h1>
             <p>내용2</p>
             <p>내용3</p>
             <p class="txt">내용4</p>
@@ -25,30 +25,16 @@
         $(function() {
             //형 요소 선택자
             //내용3 선택
-            $(".txt").prev().css({
+            $("#wrap").children().css({
                 "border" : "1px solid red",
-                "background-color" : "yellow"
+                "background-color" : "#ff0"
             });
 
             //동생 요소 선택자
             //내용5 선택
-            $(".txt").next().css({
+            $(".txt").next.css({
                 "border" : "1px solid red",
-                "background-color" : "brown"
-            });
-
-            //동생 요소 선택자
-            //내용6 선택
-            $(".txt").next().next().css({
-                "border" : "1px solid red",
-                "background-color" : "pink"
-            });
-
-            //동생 요소 선택자
-            //내용5 선택
-            $(".txt + p").css({
-                "border" : "1px solid red",
-                "background-color" : "skyblue"
+                "background-color" : "#ff0"
             });
         });
     </script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scrollTop() / scrollLeft() 메소드</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #body {
+            line-height: 1;
+        }
+        #wrap {
+            height: 5000px;
+            padding-top: 2000px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <h1>scrollTop() / scrollLeft() 메소드</h1>
+    </div>
+    
+    <script>
+        $(function() {
+            //h1 요소의 브라우저로부터의 절대 Top 값 - padding + 부모요소의 margin-top : 2000px
+            var topNum = $("h1").offset().top;
+            console.log(topNum);
+            //수직 스크롤 위치 변경 - 2000px
+            $(window).scrollTop(topNum);
+            
+            //현재 수직 스크롤 위치 값 - 2000px
+            var sct = $(window).scrollTop();
+            console.log(sct);
+        });
+    </script>
+</body>
+</html>
