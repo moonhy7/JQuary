@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouseover()/mouseout()/hover() 메소드</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <p>
+        <button class="btn1">mouseover() / mouseout()</button>
+    </p>
+    <p class="txt1">내용1</p>
+    <p>
+        <button class="btn2">hover()</button>
+    </p>
+    <p class="txt2">내용2</p>
+    <script>
+    $(function() {
+        $(".btn1").on({
+            //btn1 mouseover 이벤트 등록
+           "mouseover" : function() {
+               $(".txt1").css({
+                   "background-color" : "yellow"
+                });
+           },
+           //btn1 mouseout 이벤트 등록
+           "mouseout" : function() {
+               $(".txt1").css({
+                   "background" : "none"
+                });
+           }
+        });
+
+        //btn2 hover 이벤트 등록
+        $(".btn2").hover(
+            //mouseover시 동작
+            function() {
+               $(".txt2").css({
+                   "background-color" : "aqua"
+                });
+           },
+           //mouseout시 동작
+           function() {
+               $(".txt2").css({
+                   "background" : "none"
+                });
+           });
+    });
+    </script>
+</body>
+</html>

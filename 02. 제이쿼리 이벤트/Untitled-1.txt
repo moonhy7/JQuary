@@ -1,0 +1,19 @@
+//단독 이벤트 등록
+$("#btn").click(function() {
+
+});
+
+
+//그룹 이벤트 등록-1
+$("#btn").on("click dblclick", function() {
+
+});
+//그룹 이벤트 등록-2
+$("#btn").on({
+    "click" : function() {
+
+    },
+    "dblclick" : function() {
+
+    }
+});

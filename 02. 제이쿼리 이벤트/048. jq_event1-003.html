@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 제거</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <p>
+        <button class="btn1">버튼1</button>
+    </p>
+    <p>내용1</p>
+    <p>
+        <button class="btn2">버튼2</button>
+    </p>
+    <p>내용2</p>
+    <script>
+    $(function() {
+        //단독 이벤트 등록
+        //btn1 클릭 시 동작
+        $(".btn1").click(function() {
+            //btn1 부모요소의 다음 요소(내용1)의 글자색 빨간색으로 변경
+            $(".btn1").parent().next().css({
+                "color" : "red"
+            });
+        });
+        //그룹 이벤트 등록
+        $(".btn2").on({
+            //btn2에 마우스 커서가 올라가거나 focus가 갔을 때 동작
+            "mouseover focus" : function() {
+                //btn2 부모요소의 다음 요소(내용2)의 글자색 초록색으로 변경
+                $(".btn2").parent().next().css({
+                    "color" : "green"
+                });
+            },
+            //btn2에서 마우스 커서가 빠져나가거나 focus가 빠져나갔을 때 동작
+            "mouseout blur" : function() {
+                //btn2 부모요소의 다음 요소(내용2)의 글자색 검정색으로 변경
+                $(".btn2").parent().next().css({
+                    "color" : "black"
+                });
+            }
+        });
+
+        //btn1 클릭 이벤트 제거
+        $(".btn1").off("click");
+        //btn2 mouseover, focus 이벤트 제거
+        $(".btn2").off("mouseover focus");
+    });
+    </script>
+</body>
+</html>
