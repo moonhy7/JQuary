@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>키보드 접근성 배려</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            width: 10000px;
+            height: 5000px;
+        }
+        #wrap {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <p><button id="btn1">버튼1</button></p>
+    <p><button id="btn2">버튼2</button></p>
+    <p class="txt"></p>
+    <script>
+        $(function() {
+            //data() : 해당 요소에 key, value 로 데이터 객체 생성
+            //키보드 접근성 배려하지 않은 이벤트 등록
+            $("#btn1").data({
+                "text" : "javascript",
+                "aaa" : "bbb"
+            }).on({
+                "mouseover" : overFnc,
+                "mouseout" : outFnc
+            });
+            
+            //키보드 접근성 배려한 이벤트 등록
+            $("#btn2").data({
+                "text" : "hello",
+                "ccc" : "ddd"
+            }).on({
+                "mouseover focus" : overFnc,
+                "mouseout blur" : outFnc
+            });
+            //btn1, btn2 요소에서 mouseover 이벤트 발생 시 동작
+            function overFnc() {
+                console.log($(this).data());
+                $(".txt").text($(this).data("text"));
+            }
+            //btn1, btn2 요소에서 mouseout 이벤트 발생 시 동작
+            function outFnc() {
+                $(".txt").text("");
+            }
+        });
+    </script>
+</body>
+</html>

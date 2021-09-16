@@ -8,30 +8,27 @@
     <script src="../js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1 class="title">가장 가까운 상위 요소 선택자</h1>
     <div>
-        <div>
-            <p class="txt1">내용1</p>
-        </div>
-    </div>
-    <div>
-        <section>
-            <p class="txt2">내용2</p>
-        </section>
+        <h1 class="title">선택자</h1>
+        <p>내용1</p>
+        <p>내용2</p>
+        <p class="txt3">내용3</p>
+        <p>내용4</p>
+        <p>내용5</p>
+        <p class="txt6">내용6</p>
     </div>
     <script>
         $(function() {
-            //가장 가까운 상위 요소 중 div 선택
-            $(".txt1").closet("div").css({
-                "border" : "1px solid red",
+            $(".txt3").prevUntil("title").css({
+                "border" : "1px solid #0ff",
                 "background-color" : "#ff0"
             });
-            //상위 요소 중 div 선택
-            $(".txt2").closest("div").css({
+            $(".txt3").nextUntil(".txt6").css({
                 "border" : "1px solid red",
                 "background-color" : "skyblue"
             });
         });
     </script>
+
 </body>
 </html>

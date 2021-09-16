@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>on() 메소드 라이브 이벤트 등록 방식</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <p><button class="btn1">버튼1</button></p>
+        <p><button class="btn2">버튼2</button></p>
+    </div>
+    <script>
+        $(function() {
+            //.btn1.on 요소에 먼저 이벤트 등록 - 라이브 이벤트 등록 방식 X
+            $(".btn1.on").on("mouseover focus", function() {
+                alert("Hello");
+            });
+            //.btn1 요소에 on class 추가해도 이벤트가 등록되지 않음
+            $(".btn1").addClass("on");
+            //.btn2.on 요소에 먼저 이벤트 등록 - 라이브 이벤트 등록 방식 O
+            $(document).on("mouseover focus", ".btn2.on", function() {
+                alert("Welcome!");
+            });
+            //.btn2 요소에 on class 추가하면 이벤트가 등록됨
+            $(".btn2").addClass("on");
+        });
+    </script>
+</body>
+</html>

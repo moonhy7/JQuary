@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>효과 메소드</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <style>
+        .content {
+            width: 400px;
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <button class="btn1">slideUp</button>
+        <button class="btn2">fadeIn</button>
+    </p>
+    <p>
+        <button class="btn3">toggleSlide</button>
+    </p>
+    <p>
+        <button class="btn4">fadeTo(0.3)</button>
+        <button class="btn5">fadeTo(1)</button>
+    </p>
+    <div class="box">
+        <div class="content">
+            키보드 접근성이란 마우스 이벤트를 등록했을 때 만일 현재 마우스가 없더라도 제이쿼리로 만든 
+            최소한의 기능을 키보드 만으로 사용할 수 있도록 보장하는 것을 일컬어 키보드 접근성이라 합니다. 
+            앞서 마우스 이벤트에 대응하는 대표적인 키보드 이벤트에는 focus() 와 blur()가 있었습니다. 
+            focus() 이벤트 메서드는 선택한 요소에 포커스가 이동되면 이벤트가 발생되었고, 그와 반대로 
+            blur() 이벤트 메서드는 선택한 요소에 생성된 포커스가 다른 요소로 이동되었을 때 이벤트가 
+            발생되었습니다. 그래서 키보드 접근성을 고려한 마우스 이벤트를 등록할 땐 포커스가 이동 가능한 요소인....
+        </div>
+    </div>
+    <script>
+        $(function() {
+            //.btn2 요소 숨김
+            $(".btn2").hide();
+            //.btn1 요소 클릭 시 .box 요소 slideUp - 위로 접혀서 사라지는 효과
+            $(".btn1").on("click", function() {
+                //1초 동안 효과 지속, 일정한 속도로, 완료되면 .btn1 숨김 .btn2 표출
+                $(".box").slideUp(1000, "linear", function() {
+                    $(".btn1").hide();
+                    $(".btn2").show();
+                });
+            });
+            //.btn2 요소 클릭 시 .box 요소 fadeIn - 점점 선명해지는 효과
+            $(".btn2").on("click", function() {
+                //1초 동안 효과 지속, 시작과 끝은 느리고 중간은 빠르게, 완료되면 .btn2 숨김 .btn1 표출
+                $(".box").fadeIn(1000, "swing", function() {
+                    $(".btn2").hide();
+                    $(".btn1").show();
+                });
+            });
+            //.btn3 요소 클릭 시 .box 요소 slideToggle - 위로 접혀서 사라지고 아래로 펼쳐져서 표출되는 효과
+            $(".btn3").on("click", function() {
+                //1초 동안 효과 지속, 일정한 속도로
+                $(".box").slideToggle(1000, "linear");
+            });
+            //.btn4 요소 클릭 시 .box 요소 fadeTo - 점점 투명하게 만드는 효과
+            $(".btn4").on("click", function() {
+                //빠르고 투명도 0.3(투명하게)
+                $(".box").fadeTo("fast", 0.3);
+            });
+            //.btn5 요소 클릭 시 .box 요소 fadeTo - 점점 투명하게 만드는 효과
+            $(".btn5").on("click", function() {
+                //빠르고 투명도 1(선명하게)
+                $(".box").fadeTo("fast", 1);
+            });
+        });
+    </script>
+</body>
+</html>

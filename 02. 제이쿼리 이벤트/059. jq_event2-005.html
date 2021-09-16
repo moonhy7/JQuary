@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$(this)/index() 메소드</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h2>$(this)</h2>
+    <ul class="menuWrap_1">
+        <li><a href="#">메뉴1</a></li>
+        <li><a href="#">메뉴2</a></li>
+        <li><a href="#">메뉴3</a></li>
+    </ul>
+    <h2>index()</h2>
+    <ul class="menuWrap_2">
+        <li><a href="#">메뉴4</a></li>
+        <li><a href="#">메뉴5</a></li>
+        <li><a href="#">메뉴6</a></li>
+    </ul>
+    <p class="idxNum"></p>
+    <script>
+        $(function() {
+            $(".menuWrap_1 a").on("click", function(e) {
+                //a 요소의 기본 이벤트 제거
+                e.preventDefault();
+                //a 요소들 배경색 흰색으로 변경
+                $(".menuWrap_1 a").css({
+                    "background-color" : "white"
+                });
+                //클릭한 a 요소의 배경색 노란색으로 변경
+                $(this).css({
+                    "background-color" : "yellow"
+                });
+            });
+
+            $(".menuWrap_2 a").on("click", function(e) {
+                //a 요소의 기본 이벤트 제거
+                e.preventDefault();
+                //a 요소들 배경색 흰색으로 변경
+                $(".menuWrap_2 a").css({
+                    "background-color" : "white"
+                });
+                //클릭한 a 요소의 index 반환
+                var idxNum = $(".menuWrap_2 a").index(this);
+                //a 요소 중 위에서 받은 index(클릭한 a 요소)의 요소 배경색 아쿠아색으로 변경
+                $(".menuWrap_2 a").eq(idxNum).css({
+                    "background-color" : "aqua"
+                });
+                //클릭한 a 요소의 index 출력
+                $(".idxNum").text("클릭한 a 요소의 index 값은 " + idxNum + "입니다.");
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>change() 메소드</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+   <select id="rel_site">
+       <option value="">사이트 선택</option>
+       <option value="http://www.naver.com">네이버</option>
+       <option value="http://www.google.com">구글</option>
+       <option value="http://www.daum.net">다음</option>
+   </select>
+   <p class="txt"></p>
+    <input type="text" name="user_id" id="user_id">
+    <input type="text" name="user_name" id="user_name">
+    <script>
+        $(function() {
+            //rel_site 요소 option 변경 시 이벤트 발생
+            $("#rel_site").change(function() {
+                $(".txt").text($(this).val());
+            });
+            //user_id, user_name 요소 내용 변경 후 포커스 이동 시 이벤트 발생
+            $("#user_id, #user_name").change(function() {
+                alert($(this).val());
+            });
+        });
+    </script>
+</body>
+</html>

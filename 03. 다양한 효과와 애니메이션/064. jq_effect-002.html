@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animate() 메소드</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <p><button class="btn1">버튼1</button></p>
+    <span class="txt1">"500px" 이동</span>
+    <p><button class="btn2">버튼2</button></p>
+    <span class="txt2">"50px"씩 이동</span>
+    <script>
+        $(function() {
+            //.btn1 요소 클릭 시 .txt1 요소에 모션 효과 발생
+            $(".btn1").on("click", function() {
+                //.txt1 요소에 marginLeft 500px, fontSize 30px로 변하는 효과
+                //2초동안 효과 지속, 일정한 속도로, 완료되면 알림창 띄움
+                $(".txt1").animate({
+                    marginLeft : "500px",
+                    fontSize : "30px"
+                },
+                2000, "linear", function() {
+                    alert("모션 완료");
+                });
+            });
+            //.btn2 요소 클릭 시 .txt2 요소에 모션 효과 발생 - 클릭할 때마다 오른쪽으로 50px씩 이동
+            $(".btn2").on("click", function() {
+                //.txt1 요소에 marginLeft 50px 씩 증가하는 효과
+                //1초동안 효과 지속
+                $(".txt2").animate({
+                    marginLeft : "+=50px"
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>

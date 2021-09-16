@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>on() 메소드 라이브 이벤트 등록 방식</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <p class="btn_wrap">
+            <button class="btn1">버튼1</button>
+        </p>
+    </div>
+        <p>
+            <button class="del1">버튼1 이벤트 해제</button>
+            <button class="del2">버튼2 이벤트 해제</button>
+        </p>
+    <script>
+        $(function() {
+            //.btn1 요소에 mouseover 이벤트 등록 - 라이브 이벤트 등록 방식 X
+            $(".btn1").on("mouseover", function() {
+                alert("Hello");
+            });
+            //.btn2 요소에 mouseover 이벤트 등록 - 라이브 이벤트 등록 방식 O
+            $(document).on("mouseover", ".btn2", function() {
+                alert("Welcome");
+            });
+            //.btn2라는 새로운 button 요소 추가
+            //라이브 이벤트 등록 방식이므로 요소 추가 될 때 자동 이벤트 등록됨
+            var btn2 = $("<p><button class = 'btn2'>버튼2</button></p>");
+            $("#wrap").append(btn2);
+
+            //del1요소 클릭 시 .btn1 요소의 mouseover 이벤트 삭제 - 라이브 이벤트 제거 방식 X
+            $(".del1").on("click", function() {
+                $(".btn1").off("mouseover");
+            });
+             //del1요소 클릭 시 .btn2 요소의 mouseover 이벤트 삭제 - 라이브 이벤트 제거 방식 O
+             $(".del2").on("click", function() {
+                $(document).off("mouseover", ".btn2");
+            });
+        });
+    </script>
+</body>
+</html>

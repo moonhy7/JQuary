@@ -4,35 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>자식 요소 선택자</title>
+    <title>전체 형 / 동생 요소 선택자</title>
     <script src="../js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <h1 class="p">부모 요소 선택자</h1>
     <div id="wrap">
-        <h1>형/동생 요소 선택자1</h1>
-        <p class="p">내용1</p>
-        <section>
-        <h1>형/동생 요소 선택자2</h1>
-            <p>내용2</p>
-            <p>내용3</p>
-            <p class="txt">내용4</p>
-            <p>내용5</p>
-            <p>내용6</p>
-        </section>
+        <h1>전체 형/동생 요소 선택자1</h1>
+        <p>내용1</p>
+        <p class= " txt">내용2</p>
+        <p>내용3</p>
+        <p class = "txt">내용4</p>
     </div>
     <script>
         $(function() {
-            //형 요소 선택자
-            //내용3 선택
-            $("#wrap").children().css({
-                "border" : "1px solid red",
-                "background-color" : "#ff0"
-            });
-
-            //동생 요소 선택자
-            //내용5 선택
-            $(".txt").next.css({
+            //전체 형 요소 선택자
+            $(".txt").siblings().css({
                 "border" : "1px solid red",
                 "background-color" : "#ff0"
             });
