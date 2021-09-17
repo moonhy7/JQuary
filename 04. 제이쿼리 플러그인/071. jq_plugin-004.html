@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 플러그인 제작</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <p><button class="btn1">버튼1</button></p>
+    <p><button class="btn2">버튼2</button></p>
+    <p><button class="btn3">버튼3</button></p>
+    <script>
+        //open 플러그인 제작
+        //이벤트와 메시지를 받아서 처리
+        $.fn.open = function(eventType, message) {
+            //이벤트가 발생한 객체 선택
+            var ts = $(this);
+            $.each(ts, function(i, o) {
+                console.log(i);
+                console.log(o);
+                //이벤트 발생한 객체에 매개변수로 전달받은 이벤트 등록
+                $(o).on(eventType, function() {
+                    //매개변수로 전달받은 메시지 알림창으로 표출
+                    alert(message);
+                });
+            });
+        }
+
+        $(".btn1").open("mouseover", "welcome");
+        $(".btn2").open("click", "hello!");
+    </script>
+</body>
+</html>

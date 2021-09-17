@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>queue()/dequeue() 메서드</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+        }
+        .txt1 {
+            width: 50px;
+            text-align: center;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <p class="txt1">내용1</p>
+    <script>
+        $(function() {
+            $(".txt1").animate({
+                marginLeft : "200px"
+            }, 1000).animate({
+                marginTop : "200px"
+                    //queue 메소드 호출 - 새로운 사용자 메소드 추가
+            }, 1000).queue(function() {
+                //.txt1 요소의 배경색 빨간색으로 변경
+                $(this).css({
+                    "background-color" : "red"
+                });
+                //queue() 메소드 호출 후 애니메이션 제거 효과 방지
+                // $(this).dequeue();
+            }).animate({
+                marginLeft : 0
+            }, 1000).animate({
+                marginTop : 0
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

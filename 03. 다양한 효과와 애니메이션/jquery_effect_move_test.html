@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 효과와 애니메이션 </title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+	<style>
+		*{margin:0;padding:0;}
+		body{padding:20px;}
+		.btnWrap{margin-bottom: 10px;}
+		.wrap{
+			max-width:600px;
+			border: 1px solid #000; 
+		}
+		.txt1{
+			width:10%; 
+			text-align:center;
+			background-color: aqua;
+		}
+	</style>
+</head>
+<body>
+	<p class="btnWrap">
+		<button class="backBtn">Back</button>
+		<button class="goBtn">Go</button>
+	</p>
+	<div class="wrap">
+		<p class="txt1">내용1</p>
+	</div>
+	<script>
+		$(function() {
+			var txt1 = $(".txt1");
+			var count = 1;
+		
+			$(".btnWrap button").click(function() {
+				//.txt1요소의 애니메이션 효과가 진행중인지 체크
+				//애니메이션 효과가 진행중이면 동작하지 않음
+				if(!txt1.is(":animated")) {
+					//클릭한 버튼이 back인지 체크
+					//.backBtn 요소 클릭 시 동작
+					if($(this).hasClass("backBtn")) {
+						count--;
+						if(count < 1) {
+							count = 1;
+							return false;
+						}
+						//
+						txt1.animate({
+							marginLeft : "-=10%"
+						}, 300);
+						//.goBtn 요소 클릭 시 동작
+					} else {
+						count++;
+						if(count > 10) {
+							count = 10;
+							return false;
+						}
+						txt1.animate({
+							marginLeft : "+=10%"
+						}, 300);
+					}
+				}
+			});
+		});
+	</script>
+</body>
+</html>

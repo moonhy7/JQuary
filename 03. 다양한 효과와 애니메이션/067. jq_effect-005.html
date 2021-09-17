@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clearQueue() 메서드</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <style>
+        .txt1, .txt2 {
+            width: 50px;
+            text-align: center;
+            background-color: aqua;
+        }
+        .txt2 {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <p class="txt1">내용1</p>
+    <p class="txt2">내용2</p>
+    <script>
+        $(function() {
+            $(".txt1").animate({
+                marginLeft : "200px"
+            }, 1000).animate({
+                marginLeft : "300px"
+            }, 1000).animate({
+                marginLeft : "400px"
+            }, 1000);
+
+            $(".txt2").animate({
+                marginLeft : "200px"
+            }, 1000).animate({
+                marginLeft : "300px"
+            }, 1000).animate({
+                marginLeft : "400px"
+            }, 1000);
+            //.txt2 요소에 현재 진행중인 애니메이션 효과는 제외하고 큐에 쌓여있는 애니메이션 효과 제거
+            $(".txt2").clearQueue();
+        });
+    </script>
+</body>
+</html>
