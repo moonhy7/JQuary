@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <style>
+        body{
+            font-size:9pt;
+        
+        }
+        .panel {
+            width:840px;
+            height:415px;
+            border:1px solid #ccc;
+        }
+        
+        .nav {
+            width:840px;
+            text-align:center;
+        }
+        button {
+        	margin-top:5px;
+        	padding:5px;
+        }
+    </style>
+
+</head>
+
+<body>  
+    <div class="panel">
+        <img src="images/1.jpg" id="view">            
+    </div>
+    <div class="nav">
+        <button id="play">play</button>
+        <button id="stop">stop</button>
+        <button id="prev">prev</button>
+        <button id="next">next</button>
+    </div>
+    <script>
+       /*
+        * step #07
+        *   - autoplay 기능 멈추기
+        *
+        * step #06
+        *   - autoPlay 기능 구현
+        *
+        * step #05
+        *   - 리팩토링 하기
+        *       - 이전 이미지 출려과 다음 이미지 출력의 중복 코드 제거하기
+        *
+        * step #04
+        *   - 이전 이미지 출력
+        *
+        * step #03
+        *   - 다음 이미지 출력
+        *
+        * step #02
+        *   - 기본 구조 잡기
+        *   - 이벤트 초기화
+        *
+        * step #01
+        *   - 전역 요소 초기화
+        *
+        */
+
+       // 전역 변수 선언 부분
+        var $view = null;
+        var currentIndex=1;
+        var timerID = 0;
+
+        // 시작 부분
+        $(document).ready(function(){
+            // 전역 요소 초기화 함수 호출
+           init();
+
+           // 이벤트 초기화 함수 호출
+           initEvent();
+        })
+
+        // 전역 요소 초기화
+        function init(){
+            $view = $("#view");
+        }
+
+        // 이벤트 초기화 함수
+        function initEvent(){
+            // 오토 플레이 실행
+            $("#play").click(function(){
+                startAutoPlay();
+            })
+
+            // 오토 플레이 멈춤
+            $("#stop").click(function(){
+                stopAutoPlay();
+            })
+
+            // 다음 이미지
+            $("#next").click(function(){
+                nextImage();
+            })
+
+            // 이전 이미지
+            $("#prev").click(function(){
+                prevImage();
+            })
+
+        }
+
+        // 오토 플레이 실행
+        function startAutoPlay(){
+            if(timerID==0){
+                //setInterver 100
+                
+            }
+        }
+
+        // 오토 플레이 멈춤
+        function stopAutoPlay(){
+             if(timerID!=0){
+                 //setInteval 제거
+                 
+                timerID=0;
+             }
+        }
+
+        // 다음 이미지
+        function nextImage(){
+            var index = ;
+            if(index>=60) {
+                //index 초기화
+
+            }                
+
+            showImage(index)
+        }
+
+        // 이전 이미지
+        function prevImage(){
+            var index = ;
+            if(index<=0) {
+                //마지막 index로
+
+            }
+
+            showImage(index);
+
+        }
+
+        // index 번째 이미지 출력
+        function showImage(index){
+            //이미지 출력
+
+
+            currentIndex = index;
+
+            // 테스트를 위해 index 값 출력
+            console.log(currentIndex);
+        }
+
+    </script>
+</body>
+
+</html>
