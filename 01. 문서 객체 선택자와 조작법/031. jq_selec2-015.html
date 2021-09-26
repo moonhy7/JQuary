@@ -25,22 +25,22 @@
                 <label for="chk2">체크2</label>
             </p>
         </section>
-        <script>
-            $(function() {
-                //내용1 p 요소가 visible인지 체크 -> true
-                var result_1 = $("#inner_1 p").eq(0).is(":visible");
-                console.log(result_1);
-                //내용2 p 요소가 visible인지 체크 -> false
-                var result_2 = $("#inner_1 p").eq(1).is(":visible");
-                console.log(result_2);
-                //체크1 checkbox 요소가 checked인지 체크 -> true
-                var result_3 = $("#chk1").is(":checked");
-                console.log(result_3);
-                //체크2 checkbox 요소가 checked인지 체크 -> false
-                var result_4 = $("#chk2").is(":checked");
-                console.log(result_4);
-            });  
-        </script>
     </div>
+    <script>
+        $(function() {
+            //내용1 p 요소가 visible인지 체크 -> true
+            var result_1 = $("#inner_1 p").eq(0).is(":visible");
+            console.log(result_1);
+            //내용2 p 요소가 visible인지 체크 -> false
+            var result_2 = $("#inner_1 p").eq(1).is(":visible");
+            console.log(result_2);
+            //체크1 checkbox 요소가 checked인지 체크 -> true
+            var result_3 = $("#chk1").is(":checked");
+            console.log(result_3);
+            //체크2 checkbox 요소가 checked인지 체크 -> false
+            var result_4 = $("#chk2").is(":checked");
+            console.log(result_4);
+        });
+    </script>
 </body>
 </html>

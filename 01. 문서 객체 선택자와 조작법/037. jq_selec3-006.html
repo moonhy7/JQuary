@@ -4,13 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>height() / width() / innerheight() / innerwidth() outerheight() outerwidth() 메소드</title>
+    <title>height()/width()/innerheight()/innerwidth()/outerheight()/outerwidth() 메소드</title>
     <script src="../js/jquery-3.6.0.min.js"></script>
     <style>
-        * {
-            padding: 0;
-        }
-
         #p1, #p2 {
             width: 100px;
             height: 50px;
@@ -21,7 +17,7 @@
     </style>
 </head>
 <body>
-    <h1>height() / width() / innerWidth() / innerHeight() outerWidth() outerHeight() 메소드</h1>
+    <h1>height()/width()/innerheight()/innerwidth()/outerheight()/outerwidth()</h1>
     <p id="p1">내용1</p>
     <p id="p2">내용2</p>
     <script>
@@ -32,24 +28,21 @@
             //p1 요소의 컨텐츠 영역 세로길이 반환 - 50
             var h1 = $("#p1").height();
             console.log("height : " + h1);
-
-            //p1 요소의 컨텐츠 영역 + padding 영역 가로길이 반환 - 140 
+            //p1 요소의 컨텐츠 영역 + padding 영역 가로길이 반환 - 140
             var w2 = $("#p1").innerWidth();
             console.log("innerWidth : " + w2);
-            //p1 요소의 컨텐츠 영역 + padding 영역 세로길이 반환 - 90 
+            //p1 요소의 컨텐츠 영역 + padding 영역 세로길이 반환 - 90
             var h2 = $("#p1").innerHeight();
             console.log("innerHeight : " + h2);
-
             //p1 요소의 컨텐츠 영역 + padding 영역 + border 영역 가로길이 반환 - 150
             var w3 = $("#p1").outerWidth();
             console.log("outerWidth : " + w3);
             //p1 요소의 컨텐츠 영역 + padding 영역 + border 영역 세로길이 반환 - 100
             var h3 = $("#p1").outerHeight();
             console.log("outerHeight : " + h3);
-
             //p2 요소의 컨텐츠 영역 + padding 영역 + border 영역 가로길이 100, 세로길이 100으로 변경
             $("#p2").outerWidth(100).outerHeight(100);
-        })
+        }); 
     </script>
 </body>
 </html>

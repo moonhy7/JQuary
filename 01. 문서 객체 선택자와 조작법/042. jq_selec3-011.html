@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>clone() / empty() / remove() 메소드</title>
+    <title>clone()/empty()/remove() 메소드</title>
     <script src="../js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -24,13 +24,13 @@
         $(function() {
             //box1 요소의 자식 요소들 복제 - 내용1, 내용2
             var copyObj = $(".box1").children().clone();
-            //box2 요소 삭제
+            //box2 요소 삭제 - 하위 요소들도 함께 삭제
             $(".box2").remove();
-            //box3 요소의 하위요소를 삭제
+            //box3 요소의 하위요소들 삭제
             $(".box3").empty();
-            //box3 요소 마지막에 위에서 복제해놓은 요소들 추가 - 내용1,
+            //box3 요소 마지막에 위에서 복제해놓은 요소들 추가 - 내용1, 내용2
             $(".box3").append(copyObj);
-        });
+        }); 
     </script>
 </body>
 </html>

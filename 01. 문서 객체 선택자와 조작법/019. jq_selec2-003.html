@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>first/last 위치 탐색 선택자</title>
+    <title>eq/lt/gt 위치 탐색 선택자</title>
     <script src="../js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>first/last 위치 탐색 선택자</h1>
+    <h1>eq/lt/gt 위치 탐색 선택자</h1>
     <ul id="menu">
         <li>내용1</li>
         <li>내용2</li>
@@ -16,26 +16,28 @@
         <li>내용4</li>
     </ul>
     <script>
-        //menu의 li중 첫 번째 요소 선택
-        //내용1 선택
-        $("#menu li:first").css( {
+        //지정한 index의 요소만 선택
+        //index = 2 - 내용3
+        $("#menu li:eq(2)").css({
             "border" : "1px solid red",
             "background-color" : "#ff0"
         });
-        // $("menu li").first.css( {
+        // $("#menu li").eq(2).css({
         //     "border" : "1px solid red",
         //     "background-color" : "#ff0"
         // });
-        // menu 의 li중 마지막 요소 선택
-        //내용4 선택
-        $("#menu li:last").css( {
+        //지정한 index보다 작은 index의 요소들 전체 선택
+        //index = 0, 1 - 내용1, 내용2
+        $("#menu li:lt(2)").css({
             "border" : "1px dashed red",
             "background-color" : "skyblue"
         });
-        // $("menu li").last.css( {
-        //     "border" : "1px dashed red",
-        //     "background-color" : "skyblue"
-        // });
+        //지정한 index보다 큰 index의 요소들 전체 선택
+        //index = 3 - 내용4
+        $("#menu li:gt(2)").css({
+            "border" : "1px dotted red",
+            "background-color" : "gray"
+        });
     </script>
 </body>
 </html>

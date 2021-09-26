@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>속성 상태에 따른 탐색 선택자</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <p>내용1</p>
+        <p style="display: none;">내용2</p>
+        <p>내용3</p>
+    </div>
+    <form action="#">
+        <p id="zone1">
+            <select name="course" id="course">
+                <option value="opt1">option1</option>
+                <option value="opt2" selected>option2</option>
+                <option value="opt3">option3</option>
+            </select>
+        </p>
+        <p>
+            <input type="checkbox" name="hobby1" value="독서">독서
+            <input type="checkbox" name="hobby2" value="자전거" checked>자전거
+            <input type="checkbox" name="hobby3" value="등산" checked>등산
+        </p>
+        <p id="zone3">
+            <input type="radio" name="hobby" value="male">남성
+            <input type="radio" name="hobby" value="female" checked>여성
+        </p>
+        <p>
+            <input type="checkbox" name="benefit1" value="문상">문상
+            <input type="checkbox" name="benefit2" value="포인트" checked >포인트
+            <input type="checkbox" name="benefit3" value="항공권" checked>항공권
+        </p>
+    </form>
+    <script>
+        $(function() {
+            //display속성이 none이나 hidden, visible 속성이 hidden인 요소 선택
+            $("#wrap p:hidden").css({
+                "display" : "block",
+                "background-color" : "yellow"
+            });
+            //selected된 option 요소 선택
+            var z1 = $("#zone1 :selected").val();
+            console.log(z1);
+            //checked된 checkbox 요소 선택
+            var z2 = [];
+            //check된 checkbox길이만큼 each메소드 실행
+            $("#zone2 :checked").each(function(i) {
+                //this객체에 checked된 checkbox가 담김
+                //.val() value값 꺼내오기
+                z2.push($(this).val());
+            });
+            console.log(z2);
+            //checked된 radio 요소 선택
+            var z3 = $("#zone3 :checked").val();
+            console.log(z3);
+
+            var z4 = [];
+            $("input:checkbox[name^=hobby]:checked").each(function(i) {
+                z4.push($(this).val());
+            });
+            // $("input[name*='hobby']:checked").each(function(i) {
+                
+            //     z4.push($(this).val());
+            // });
+            console.log(z4);
+        });
+    </script>
+</body>
+</html>

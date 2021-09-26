@@ -9,16 +9,16 @@
 </head>
 <body>
     <h1>배열 메소드</h1>
-    <ul id="menu1">
+    <u1 id="menu1">
         <li>내용1-1</li>
         <li>내용1-2</li>
         <li>내용1-3</li>
-    </ul>
-    <ul id="menu2">
+    </u1>
+    <u1 id="menu2">
         <li>내용2-1</li>
         <li>내용2-2</li>
         <li>내용2-3</li>
-    </ul>
+    </u1>
     <script>
         $(function() {
             var obj = [{
@@ -29,27 +29,27 @@
                 "area" : "전주"
             }];
             //첫 번째 매개변수는 배열의 인덱스
-            //두 번째 배개변수는 배열의 데이터
-            $(obj).each(function(i,o){
-                console.log(i + ":", o)
+            //두 번째 매개변수는 배열의 데이터
+            $(obj).each(function(b, a) {
+                console.log(b + ":", a);
             });
 
             //this는 배열데이터 객체 자체
             $(obj).each(function(i) {
                 console.log(i + ":", $(this));
             });
-            console.log("========= The End1 =========");
+            console.log("=====The End1=====");
 
             $.each($("#menu2 li"), function(i, o) {
                 console.log(i + ":", o);
             });
-            console.log("========= The End2 =========");
+            console.log("=====The End2=====");
 
             //this는 li태그 자체
             $.each($("#menu2 li"), function(i) {
                 console.log(i + ":", $(this));
             });
-            console.log("========= The End3 =========");
+            console.log("=====The End3=====");
 
             //this.text li요소 내용
             $.each($("#menu2 li"), function(i) {

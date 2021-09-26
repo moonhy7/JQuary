@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>attr()/removeAttr() 메소드</title>
+    <title>val() 메소드</title>
     <script src="../js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -28,14 +28,14 @@
             //user_id 요소의 value 값 변경
             $("#user_id").val("javascript");
 
-            //user_id 요소의 기존 value 값 가져오기- hello
+            //user_id 요소의 기존 value 값 가져오기 - hello
             var result_2 = $("#user_id").prop("defaultValue");
             console.log(result_2);
-
+            
             //user_id 요소의 value 값 가져오기 - javascript
             var result_3 = $("#user_id").val();
             console.log(result_3);
-        })
+        }); 
     </script>
 </body>
 </html>

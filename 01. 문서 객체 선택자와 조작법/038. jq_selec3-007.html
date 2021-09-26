@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>position() / offset() 메소드</title>
+    <title>position()/offset() 메소드</title>
     <script src="../js/jquery-3.6.0.min.js"></script>
     <style>
         * {
             margin: 0;
             padding: 0;
         }
-
         #box_wrap {
             width: 300px;
             height: 200px;
@@ -20,7 +19,7 @@
             background-color: #ccc;
         }
         .box {
-            width: 50px; 
+            width: 50px;
             height: 50px;
             position: absolute;
             left: 100px;
@@ -34,7 +33,7 @@
         <p class="box">박스</p>
     </div>
     <p class="txt1">절대 top 위치 값 : <span></span></p>
-    <p class="txt1">상대 top 위치 값 : <span></span></p>
+    <p class="txt2">상대 top 위치 값 : <span></span></p>
     <script>
         $(function() {
             //요소들 변수로 선언
@@ -48,7 +47,7 @@
 
             $txt1.text(off_t);
             $txt2.text(pos_t);
-        })
+        }); 
     </script>
 </body>
 </html>

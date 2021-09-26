@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index() 메소드</title>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>index()</h1>
+    <ul>
+        <li class="list1">내용1</li>
+        <li>내용2</li>
+        <li id="list3">내용3</li>
+        <li>내용4</li>
+    </ul>
+    <script>
+        $(function() {
+            //li 요소 중 id가 list3인 요소의 인덱스 반환
+            var idxNum = $("li").index($("#list3"));
+            console.log(idxNum);
+
+            //li 요소 중 class가 list1인 요소의 인덱스 반환
+            var idxNum1 = $("li").index($(".list1"));
+            console.log(idxNum1);
+        });
+    </script>
+</body>
+</html>

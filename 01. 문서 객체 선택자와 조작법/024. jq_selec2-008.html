@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>each() 메소드</title>
+    <title>map()/grep() 메소드</title>
     <script src="../js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -17,15 +17,15 @@
                 "area" : "부산",
                 "name" : "홍과장"
             }, {
-                "area" : "대전",
+                "area" : "전주",
                 "name" : "박사장"
             }, {
                 "area" : "서울",
                 "name" : "빅마마"
             }];
-            
-            //첫 번째 매개변수는 배열의 인덱스
-            //두 번째 배개변수는 배열의 데이터
+
+            //첫 번째 매개변수는 배열의 데이터
+            //두 번째 매개변수는 배열의 인덱스
             var arr2 = $.map(arr1, function(a, b) {
                 console.log(a);
                 console.log(b);
@@ -33,10 +33,11 @@
                     return a;
                 }
             });
-
             console.log(arr2);
-            console.log("========= First End =========");
+            console.log("=====First End=====");
 
+            //첫 번째 매개변수는 배열의 데이터
+            //두 번째 매개변수는 배열의 인덱스
             var arr3 = $.grep(arr1, function(a, b) {
                 console.log(a);
                 console.log(b);
@@ -45,9 +46,9 @@
                 } else {
                     return false;
                 }
-            });
+            })
             console.log(arr2);
-            console.log("========= Second End =========");
+            console.log("=====Second End=====");
         });
     </script>
 </body>

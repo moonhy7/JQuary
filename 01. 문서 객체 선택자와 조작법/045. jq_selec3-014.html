@@ -21,30 +21,27 @@
         <p>내용6</p>
     </div>
     <div class="wrap_3">
-        <div>
-            <p>내용7</p>
-            <p>내용8</p>
-        </div>
+        <p>내용7</p>
+        <p>내용8</p>
     </div>
-    
     <script>
         $(function() {
-            //.wrap_1 첫 번째 p요소의 text 변경 
+            //.wrap_1 첫 번째 p요소의 text 변경
             $(".wrap_1 p:first").text("내용1");
-            //.wrap_1 p 요소 중 class = "active"인 요소에서 active class 삭제 후 on class 추가 
+            //.wrap_1 p 요소 중 class="active"인 요소에서 active class 삭제 후 on class 추가 
             $(".wrap_1 p.active").removeClass("active").addClass("on");
-            //.wrap_1 p 요소 중 index가 2인 요소의 a 요소의 href 속성 변경
+            //.wrap_1 p 요소 중 index가 2인 요소 안에 a 요소의 href 속성 변경
             $(".wrap_1 p:eq(2) a").attr("href", "http://www.naver.com");
             //.wrap_1 p 요소 중 index가 3인 요소 안에 input 요소의 value 변경
             $(".wrap_1 p:eq(3) input").val("Korea");
-            console.log($(".wrap_1 p:eq(3) input").val("Korea"));
-            //.wrap_2 첫 번째 p 요소 중 다음에 새로운 p 요소 추가
-            $(".wrap_2 p:first").after("<p>After(추가1)</p>");
-            //.wrap_2 첫 번째 p 요소 중 이전에 새로운 p 요소 추가
+            console.log($(".wrap_1 p:eq(3) input").val());
+            //.wrap_2 첫 번째 p요소 다음에 새로운 p 요소 추가
+            $(".wrap_2 p:first").after("<p>Atfer(추가1)</p>");
+            //.wrap_2 첫 번째 p요소 이전에 새로운 p 요소 추가
             $(".wrap_2 p:first").before("<p>Before(추가2)</p>");
-            //.wrap_3 p 요소들의 부모요소 삭제 후 하위 요소들 strong으로 감쌈
+            //.wrap_3 p요소들의 부모요소 삭제 후 하위 요소들 strong으로 감쌈
             $(".wrap_3 p").unwrap().wrapInner("<strong />");
-        });
+        }); 
     </script>
 </body>
 </html>
